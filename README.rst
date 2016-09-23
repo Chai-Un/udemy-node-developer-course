@@ -3,7 +3,7 @@ Udemy - The Complete Node JS Developer Course
 
 Record of all files created while taking the course.
 
-Due to instability of my windows laptop and it frquently crashing, now continueing the course on my Ubuntu Emachine.
+Due to instability of my windows laptop and it frquently crashing, now continuing the course on my Ubuntu EMachine.
 
 Course is not completed yet.
 
