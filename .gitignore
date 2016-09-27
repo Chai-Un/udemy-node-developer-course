@@ -2,3 +2,6 @@
 .gitignore
 .idea/
 *.log
+
+# npm
+*/node_modules/
