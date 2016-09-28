@@ -11,11 +11,6 @@ storage.initSync();
 // get
 //   --name
 
-
-// account.name Facebook
-// account.username User12!
-// account.password Password123! 
-
 function createAccount(account) {
 	var accounts = storage.getItemSync('accounts');
 
@@ -38,6 +33,7 @@ function getAccount(accountName) {
 	var accounts = storage.getItemSync('accounts');
 	var matchedAccount;
 
+	// iterate over array, return matching account, else undefined
 	if (typeof accounts !== 'undefined') {
 		for (var i=0; i < accounts.length; i++) {
 			if (accounts[i].name === accountName) {
@@ -46,14 +42,4 @@ function getAccount(accountName) {
 		}
 	}
 	return matchedAccount;
-
-	// iterate over array, return matching account, else undefined
 }
-
-// createAccount({
-// 	name: 'Facebook',
-// 	username: 'User12!',
-// 	password: 'Password123!'
-// })
-
-console.log(getAccount('Facebook'));
