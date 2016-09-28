@@ -3,6 +3,54 @@ console.log('Starting password manager');
 var storage = require('node-persist');
 storage.initSync();
 
+var argv = require('yargs')
+	.command('create', 'Create a password account', function(yargs) {
+		yargs.option({
+			name: {
+				demand: true,
+				alias: 'n',
+				description: 'Name of the account goes here',
+				type: 'string'
+			},
+			username: {
+				demand: true,
+				alias: 'u',
+				description: 'Account username goes here',
+				type: 'string'
+			},
+			password: {
+				demand: true,
+				alias: 'p',
+				description: 'Account password goes here',
+				type: 'string'
+			}
+		}).help('help');
+	})
+	.command('get', 'Get a password account', function(yargs) {
+		yargs.option({
+			name: {
+				demand: true,
+				alias: 'n',
+				description: 'Name of the account goes here',
+				type: 'string'
+			},
+			username: {
+				demand: true,
+				alias: 'u',
+				description: 'Account username goes here',
+				type: 'string'
+			},
+			password: {
+				demand: true,
+				alias: 'p',
+				description: 'Account password goes here',
+				type: 'string'
+			}
+		}).help('help');
+	})
+	.help('help')
+	.argv;
+var command = argv._[0];
 //create
 //   --name
 //   --username
