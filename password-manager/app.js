@@ -33,18 +33,6 @@ var argv = require('yargs')
 				alias: 'n',
 				description: 'Name of the account goes here',
 				type: 'string'
-			},
-			username: {
-				demand: true,
-				alias: 'u',
-				description: 'Account username goes here',
-				type: 'string'
-			},
-			password: {
-				demand: true,
-				alias: 'p',
-				description: 'Account password goes here',
-				type: 'string'
 			}
 		}).help('help');
 	})
@@ -90,4 +78,21 @@ function getAccount(accountName) {
 		}
 	}
 	return matchedAccount;
+}
+
+if (command === 'create') {
+	createAccount({
+		name: argv.name,
+		username: argv.username,
+		password: argv.password
+	});
+	console.log('Account ' + argv.name + ' created!');
+} else if (command === 'get') {
+	var account = getAccount(argv.name);
+	if (typeof account !== 'undefined') {
+		console.log(account);
+	} else {
+		console.log('No account with name: ' + argv.name + ' found!');
+	}
+	
 }
