@@ -3,6 +3,15 @@ console.log('Starting password manager');
 var storage = require('node-persist');
 storage.initSync();
 
+//create
+//   --name
+//   --username
+//   --password
+
+// get
+//   --name
+
+
 // account.name Facebook
 // account.username User12!
 // account.password Password123! 
