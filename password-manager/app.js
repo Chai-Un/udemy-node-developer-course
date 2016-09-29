@@ -100,6 +100,8 @@ function getAccount(accountName, masterPassword) {
 	return matchedAccount;
 }
 
+// add try catch for error
+
 if (command === 'create') {
 	createAccount({
 		name: argv.name,
