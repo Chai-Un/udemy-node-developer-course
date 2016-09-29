@@ -103,18 +103,28 @@ function getAccount(accountName, masterPassword) {
 // add try catch for error
 
 if (command === 'create') {
-	createAccount({
-		name: argv.name,
-		username: argv.username,
-		password: argv.password
-	}, argv.masterPassword);
-	console.log('Account ' + argv.name + ' created!');
-} else if (command === 'get') {
-	var account = getAccount(argv.name, argv.masterPassword);
-	if (typeof account !== 'undefined') {
-		console.log(account);
-	} else {
-		console.log('No account with name: ' + argv.name + ' found!');
+	try {
+		createAccount({
+			name: argv.name,
+			username: argv.username,
+			password: argv.password
+		}, argv.masterPassword);
+		console.log('Account ' + argv.name + ' created!');
+	} catch (e) {
+		console.log('Unable to create new account due to following error:');
+		console.log(e.message);
 	}
 	
+} else if (command === 'get') {
+	try {
+		var account = getAccount(argv.name, argv.masterPassword);
+		if (typeof account !== 'undefined') {
+			console.log(account);
+		} else {
+			console.log('No account with name: ' + argv.name + ' found!');
+		}
+	} catch (e) {
+		console.log('Unable to get the account due to following error:');
+		console.log(e.message);
+	}	
 }
