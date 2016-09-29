@@ -24,6 +24,7 @@ var argv = require('yargs')
 				description: 'Account password goes here',
 				type: 'string'
 			}
+			// masterpassword argument add.
 		}).help('help');
 	})
 	.command('get', 'Get a password account', function(yargs) {
