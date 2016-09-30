@@ -8,3 +8,6 @@
 
 # persist library folder
 */persist/
+
+#weather account data
+weatheraccount.txt
