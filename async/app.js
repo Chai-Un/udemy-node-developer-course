@@ -9,18 +9,8 @@ var argv = require('yargs')
 		description: 'Location name goes here',
 		type: 'string'
 	})
-	.help('help');
+	.help('help')
 	.argv;
-
-// location(function (location) {
-// 	if (!location) {
-// 		console.log('Unable to get location');
-// 		return;
-// 	} else {
-// 		console.log('city: ' + location.city);
-// 		console.log('long/lat: ' + location.loc);
-// 	}
-// });
 
 // if location is provided 
 //  call weather
@@ -32,4 +22,16 @@ if (typeof argv.l === 'string' && argv.l.length > 0) {
 	});
 } else {
 	console.log('location not provided! Trying to gues where you are..');
+	location(function (location) {
+		if (!location) {
+			console.log('Unable to get location');
+			return;
+		} else {
+			console.log('city: ' + location.city);
+			console.log('long/lat: ' + location.loc);
+			weather(location.city, function(currentWeather) {
+				console.log(currentWeather);
+			});
+		}
+	});
 }
