@@ -15,7 +15,6 @@ module.exports = function(location, callback) {
 			callback('Unable to fetch weather');
 		} else {
 			callback(JSON.stringify(body, null, 4));
-			// The temperature in Rotterdam
 			callback('The temperature in ' + body.name + 
 				' is ' + body.main.temp + ' celcius.');
 		}

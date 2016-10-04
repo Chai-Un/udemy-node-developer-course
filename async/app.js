@@ -1,7 +1,6 @@
 var weather = require('./weather.js');
 var location = require('./location.js');
 
-// setup yargs for -location or -l
 var argv = require('yargs')
 	.option('location', {
 		demand: false,
@@ -11,9 +10,6 @@ var argv = require('yargs')
 	})
 	.help('help')
 	.argv;
-
-// if location is provided 
-//  call weather
 
 if (typeof argv.l === 'string' && argv.l.length > 0) {
 	console.log('location provided = ' + argv.l);

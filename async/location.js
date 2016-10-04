@@ -6,7 +6,7 @@ module.exports = function(callback) {
 		if (error) {
 			callback();
 		} else {
-			callback(body);			
+			callback(body);
 		}
 	});
 	console.log('Got a location!');
