@@ -13,21 +13,18 @@ var argv = require('yargs')
 
 if (typeof argv.l === 'string' && argv.l.length > 0) {
 	console.log('location provided = ' + argv.l);
-	weather(argv.l, function(currentWeather) {
+	weather(argv.l).then(function (currentWeather) {
 		console.log(currentWeather);
-	});
+	}).catch(function (error) {
+		console.log(error);
+	})
 } else {
 	console.log('location not provided! Trying to gues where you are..');
-	location(function (location) {
-		if (!location) {
-			console.log('Unable to get location');
-			return;
-		} else {
-			console.log('city: ' + location.city);
-			console.log('long/lat: ' + location.loc);
-			weather(location.city, function(currentWeather) {
-				console.log(currentWeather);
-			});
-		}
+	location().then(function(loc) {
+		return weather(loc.city);
+	}).then(function(currentWeather) {
+		console.log(currentWeather);
+	}).catch(function(error) {
+		console.log(error);
 	});
 }
