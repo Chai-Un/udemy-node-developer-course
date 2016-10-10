@@ -2,7 +2,7 @@ var request = require('request');
 
 var apiKey = 'e2cac73b15943c192519aba540aee144';
 
-module.exports = function(location, callback) {
+module.exports = new Promise(location, callback) {
 	var encodedLocation = encodeURIComponent(location);
 	if (!encodedLocation) {
 		return callback('No location for fetching weather');
